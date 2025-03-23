@@ -31,6 +31,6 @@ public class ApproveController {
         System.out.println(approver);
 
         model.addAttribute("message", "Thank you, " + approver.getName());
-        return "approve";
+        return "redirect:approve";
     }
 }
