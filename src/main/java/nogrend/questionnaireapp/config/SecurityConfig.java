@@ -10,15 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class SecurityConfig implements WebMvcConfigurer {
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll() // Allow access to all endpoints
-                )
-                .csrf(AbstractHttpConfigurer::disable); // Disable CSRF for testing
-
-        return http.build();
+        return http
+          .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+          .csrf(AbstractHttpConfigurer::disable)
+          .build();
     }
 }
